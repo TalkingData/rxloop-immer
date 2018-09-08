@@ -3,9 +3,7 @@ import immer from '../src/';
 
 const app = rxloop({
   plugins: [
-    immer(
-      { disabled: [ 'a' ] }
-    ),
+    immer(),
   ],
 });
 
@@ -27,20 +25,6 @@ app.model({
   },
 });
 app.stream('test').subscribe();
-
-const aState = {
-  a: 1,
-};
-app.model({
-  name: 'a',
-  state: aState,
-  reducers: {
-    add(state) {
-      state.a = 2;
-    },
-  },
-});
-app.stream('a').subscribe();
 
 describe('Basic usage', () => {
   test('immer number', () => {
@@ -67,14 +51,6 @@ describe('Basic usage', () => {
     expect(app.getState('test')).toEqual({
       a: 2,
       arr: [1, 2],
-    });
-  });
-  test('config test', () => {
-    app.dispatch({
-      type: 'a/add',
-    });
-    expect(aState).toEqual({
-      a: 2,
     });
   });
 });
