@@ -2,17 +2,21 @@ import rxloop from '@rxloop/core';
 import immer from '../src/';
 
 const app = rxloop({
-  plugins: [ immer() ],
+  plugins: [
+    immer(
+      { disabled: [ 'a' ] }
+    ),
+  ],
 });
 
-const state = {
+const testState = {
   a: 1,
   arr: [1],
 };
 
 app.model({
   name: 'test',
-  state,
+  state: testState,
   reducers: {
     add(state) {
       state.a = 2;
@@ -24,12 +28,26 @@ app.model({
 });
 app.stream('test').subscribe();
 
+const aState = {
+  a: 1,
+};
+app.model({
+  name: 'a',
+  state: aState,
+  reducers: {
+    add(state) {
+      state.a = 2;
+    },
+  },
+});
+app.stream('a').subscribe();
+
 describe('Basic usage', () => {
   test('immer number', () => {
     app.dispatch({
       type: 'test/add',
     });
-    expect(state).toEqual({
+    expect(testState).toEqual({
       a: 1,
       arr: [1],
     });
@@ -42,13 +60,21 @@ describe('Basic usage', () => {
     app.dispatch({
       type: 'test/arr',
     });
-    expect(state).toEqual({
+    expect(testState).toEqual({
       a: 1,
       arr: [1],
     });
     expect(app.getState('test')).toEqual({
       a: 2,
       arr: [1, 2],
+    });
+  });
+  test('config test', () => {
+    app.dispatch({
+      type: 'a/add',
+    });
+    expect(aState).toEqual({
+      a: 2,
     });
   });
 });
