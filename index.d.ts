@@ -10,4 +10,8 @@ export interface API {
 
 export type Plugin = (api: API) => void;
 
-export default function rxloopImmer(): Plugin;
+export interface Config {
+  disabled?: string[],
+}
+
+export default function rxloopImmer(opts?: Config): Plugin;
