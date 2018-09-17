@@ -1,6 +1,6 @@
 {
   "name": "@rxloop/immer",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "rxloop immer plugin.",
   "scripts": {
     "lint": "echo 'lint'",
