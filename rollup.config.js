@@ -17,6 +17,7 @@ if (env === 'es' || env === 'cjs') {
     nodeResolve({
       jsnext: true
     }),
+    commonjs(),
     babel({
       plugins: ['external-helpers'],
     })
