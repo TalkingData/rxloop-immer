@@ -23,7 +23,7 @@ export default function rxloopImmer() {
             console.warn('Downgrade to deepclone when call methods: push、unshift、splice in Vue');
             const draft = cloneDeep(state);
             reducer(draft, action);
-            return draft;
+            return Object.freeze(draft);
           }
           throw e;
         }
