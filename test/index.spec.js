@@ -17,9 +17,11 @@ app.model({
   state: testState,
   reducers: {
     add(state) {
+      delete state.__action__;
       state.a = 2;
     },
     arr(state) {
+      delete state.__action__;
       state.arr.push(2);
     },
   },
