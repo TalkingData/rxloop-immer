@@ -1,3 +1,18 @@
+<a name="0.1.4"></a>
+## [0.1.4](https://github.com/TalkingData/rxloop-immer/compare/v0.1.3...v0.1.4) (2018-09-20)
+
+
+### Bug Fixes
+
+* freeze Object by default ([ff62ea1](https://github.com/TalkingData/rxloop-immer/commit/ff62ea1))
+
+
+### Features
+
+* add __action__ attr ([fec9c64](https://github.com/TalkingData/rxloop-immer/commit/fec9c64))
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/TalkingData/rxloop-immer/compare/v0.1.2...v0.1.3) (2018-09-17)
 
