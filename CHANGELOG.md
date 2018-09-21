@@ -1,3 +1,13 @@
+<a name="0.1.5"></a>
+## [0.1.5](https://github.com/TalkingData/rxloop-immer/compare/v0.1.4...v0.1.5) (2018-09-21)
+
+
+### Bug Fixes
+
+* clear code ([56ccbf1](https://github.com/TalkingData/rxloop-immer/commit/56ccbf1))
+
+
+
 <a name="0.1.4"></a>
 ## [0.1.4](https://github.com/TalkingData/rxloop-immer/compare/v0.1.3...v0.1.4) (2018-09-20)
 
