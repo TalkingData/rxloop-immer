@@ -7,7 +7,6 @@ export default function rxloopImmer() {
       return (state) => {
         try {
           const rtn = produce(state, draft => {
-            draft.__action__ = action;
             const compatiableRet = reducer(draft, action);
             if (compatiableRet !== undefined) {
               // which means you are use redux pattern
@@ -23,7 +22,6 @@ export default function rxloopImmer() {
           if(e.toString().indexOf('observeArray')) {
             console.warn('Downgrade to deepclone when call methods: push、unshift、splice in Vue');
             const draft = cloneDeep(state);
-            draft.__action__ = action;
             reducer(draft, action);
             return Object.freeze(draft);
           }
