@@ -1,4 +1,5 @@
 # rxloop-immer
+https://github.com/TalkingData/rxloop/tree/master/packages/immer
 
 > rxloop immer plugin
 
